@@ -1,0 +1,121 @@
+diff --git a/src/mme_vla_suite/models/integration/history_gemma.py b/src/mme_vla_suite/models/integration/history_gemma.py
+index 89b5e5d..12da903 100644
+--- a/src/mme_vla_suite/models/integration/history_gemma.py
++++ b/src/mme_vla_suite/models/integration/history_gemma.py
+@@ -48,7 +48,7 @@ class MemoryAttention(nn.Module):
+     Use action sequence to attend memory sequence.
+     """
+     @nn.compact
+-    def __call__(self, x, mem_seq, mem_mask, mem_k_positions=None):
++    def __call__(self, x, mem_seq, mem_mask, mem_k_positions=None, mem_reduction_order=None):
+         # x: [B, T, D], mem_seq: [B, S, D], mem_mask: [B, S]
+         B, mem_len, mem_width = mem_seq.shape
+         B, x_len, x_width = x.shape
+@@ -99,6 +99,15 @@ class MemoryAttention(nn.Module):
+         q = _apply_rope(q, positions=q_positions)
+         q *= head_dim**-0.5
+         k = _apply_rope(k, positions=k_positions)
++        # STAGE7: opt-in, matched reduction order; key rotations already assigned.
++        # None preserves the original path. The runner validates a full bijection.
++        if mem_reduction_order is not None:
++            reduction_order = jnp.asarray(mem_reduction_order)
++            if reduction_order.shape != (B, mem_len):
++                raise ValueError("mem_reduction_order must have shape (B, mem_len)")
++            k = jnp.take_along_axis(k, reduction_order[:, :, None, None], axis=1)
++            v = jnp.take_along_axis(v, reduction_order[:, :, None, None], axis=1)
++            mem_mask = jnp.take_along_axis(mem_mask, reduction_order, axis=1)
+         q = einops.rearrange(q, "B T (K G) H -> B T K G H", K=num_kv_heads)
+ 
+         logits = jnp.einsum(
+@@ -140,6 +149,7 @@ class HistoryBlock(nn.Module):
+         mem_seq,
+         mem_mask,
+         mem_k_positions,
++        mem_reduction_order,
+         deterministic=True,
+     ):  # noqa: FBT002
+ 
+@@ -191,6 +201,7 @@ class HistoryBlock(nn.Module):
+                         mem_seq[-1],
+                         mem_mask[-1],
+                         None if mem_k_positions is None else mem_k_positions[-1],
++                        None if mem_reduction_order is None else mem_reduction_order[-1],
+                     )
+                     x = MemoryRMSNorm(name="mem_rms_norm_ffn")(x, mem_mod_vec)  
+                 
+@@ -251,7 +262,7 @@ class Module(nn.Module):
+         block_cls = nn.remat(
+             HistoryBlock,
+             prevent_cse=False,
+-            static_argnums=(8,),
++            static_argnums=(9,),
+             policy=jax.checkpoint_policies.nothing_saveable,
+         )
+         self.layers = nn.scan(
+@@ -267,7 +278,8 @@ class Module(nn.Module):
+                 nn.broadcast,
+                 nn.broadcast,
+                 nn.broadcast,
+-            ),  # kv_cache, positions, mask, adarms_cond, mem_seq, mem_mask, mem_k_positions, deterministic
++                nn.broadcast,
++            ),  # kv_cache, positions, mask, adarms_cond, mem_seq, mem_mask, mem_k_positions, mem_reduction_order, deterministic
+             length=self.configs[0].depth,
+         )(
+             configs=self.configs,
+@@ -296,6 +308,7 @@ class Module(nn.Module):
+         mem_seq: Sequence[at.Float[at.Array, "b lmem _d"] | None] | None = None,
+         mem_mask: Sequence[at.Bool[at.Array, "b lmem"] | None] | None = None,
+         mem_k_positions: Sequence[at.Int[at.Array, "b lmem"] | None] | None = None,
++        mem_reduction_order: Sequence[at.Int[at.Array, "b lmem"] | None] | None = None,
+         deterministic: bool = True,
+     ) -> tuple[Sequence[at.Float[at.Array, "b _t _d"] | None], KVCache]:
+         embedded = jax.tree.map(lambda e: e.astype(self.embed_dtype), embedded)
+@@ -312,6 +325,7 @@ class Module(nn.Module):
+             mem_seq,
+             mem_mask,
+             mem_k_positions,
++            mem_reduction_order,
+             deterministic,
+         )
+ 
+diff --git a/src/mme_vla_suite/models/integration/history_pi0.py b/src/mme_vla_suite/models/integration/history_pi0.py
+index e099a78..1b92066 100644
+--- a/src/mme_vla_suite/models/integration/history_pi0.py
++++ b/src/mme_vla_suite/models/integration/history_pi0.py
+@@ -647,6 +647,7 @@ class HistoryPi0(BaseModel):
+         noise: at.Float[at.Array, "b ah ad"] | None = None,
+         mem_k_positions: at.Int[at.Array, "b lmem"] | None = None,
+         mem_frame_permutation: at.Int[at.Array, "nframes"] | None = None,
++        mem_reduction_order: at.Int[at.Array, "b lmem"] | None = None,
+     ) -> Actions:
+ 
+         observation = preprocess_observation(None, observation, train=False)
+@@ -763,6 +764,7 @@ class HistoryPi0(BaseModel):
+                     mem_seq=[None, mem_seq],
+                     mem_mask=[None, mem_mask],
+                     mem_k_positions=[None, mem_k_positions],
++                    mem_reduction_order=[None, mem_reduction_order],
+                 )
+             else:
+                 (prefix_out, suffix_out), _ = self.PaliGemma.llm(
+diff --git a/src/mme_vla_suite/policies/policy.py b/src/mme_vla_suite/policies/policy.py
+index 289b93f..61d548d 100644
+--- a/src/mme_vla_suite/policies/policy.py
++++ b/src/mme_vla_suite/policies/policy.py
+@@ -86,6 +86,7 @@ class MME_VLA_Policy:
+         temporal_pos_override = obs.pop("temporal_pos_override", None)
+         mem_frame_permutation = obs.pop("mem_frame_permutation", None)
+         mem_k_positions = obs.pop("mem_k_positions", None)
++        mem_reduction_order = obs.pop("mem_reduction_order", None)
+         if temporal_pos_override is not None:
+             if not isinstance(temporal_pos_override, dict):
+                 raise TypeError(
+@@ -118,6 +119,8 @@ class MME_VLA_Policy:
+             sample_kwargs["mem_frame_permutation"] = mem_frame_permutation
+         if mem_k_positions is not None:
+             sample_kwargs["mem_k_positions"] = mem_k_positions
++        if mem_reduction_order is not None:
++            sample_kwargs["mem_reduction_order"] = mem_reduction_order
+ 
+         start_time = time.monotonic()
+         outputs = {
