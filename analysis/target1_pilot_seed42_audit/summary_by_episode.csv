@@ -1,0 +1,4 @@
+episode,positive_comparisons,comparisons,median_reduction_percent,minimum_reduction_percent,maximum_reduction_percent
+VideoUnmask_ep0,7,9,59.260855163941805,-133.49582837774275,94.87274043946339
+InsertPeg_ep0,9,9,88.74168065692479,38.48671327142018,98.7685319049102
+VideoPlaceOrder_ep0,2,9,-45.434170468818124,-198.13167641690615,91.96308233641923

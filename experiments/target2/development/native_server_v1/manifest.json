@@ -1,0 +1,12 @@
+{
+  "status": "DEVELOPMENT_SERVER",
+  "arm": "native",
+  "checkpoint": "/workspace/memtrace/models/perceptual-framesamp-modul/79999",
+  "checkpoint_freeze": "/workspace/MEMTRACE_RunPod_Target1_Rebuild/packet/evidence/stage7/freeze.json",
+  "checkpoint_frozen_file_count": 18,
+  "attention_source_sha256": "04dd27af42631ea656d8188cf8154944a0055254231f25c294b893901cdf155f",
+  "host": "127.0.0.1",
+  "port": 18111,
+  "model_seed": 42,
+  "target1_source_untouched": true
+}

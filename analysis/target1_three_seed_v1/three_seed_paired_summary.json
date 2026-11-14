@@ -1,0 +1,71 @@
+{
+  "status": "EXPLORATORY_THREE_SEED_PAIRED_ANALYSIS",
+  "protocol_sha256": "bc46027c5906f311920926327161b5f92a416dccc1814d0e101ef041685433e0",
+  "seeds": [
+    42,
+    7,
+    2026
+  ],
+  "unique_episodes": 27,
+  "episode_evaluations": 81,
+  "bootstrap_replicates": 20000,
+  "bootstrap_unit": "episode identity, stratified by task",
+  "seed_handling": "average seeds within matched episode",
+  "uncertainty_scope": "Conditional on tested model, task families and three seeds",
+  "source_sha256": {
+    "/workspace/memtrace/results/target1_v1/analysis_seed42/episode_endpoints.csv": "5a9317ee8be7a76df207f501f3e34dca274c173096686223bfb5e4eb681d5db9",
+    "/workspace/memtrace/results/target1_v1/analysis_seed7/episode_endpoints.csv": "ce1651cfc9f3ee3b430a80ca31a8c6179caf0a0b2262b079769485ded217438f",
+    "/workspace/memtrace/results/target1_v1/analysis_seed2026/episode_endpoints.csv": "5975bb4affe05472c60c17a480e9f783a3337a0a129adb41f08a64ff63f05c9f"
+  },
+  "summary": {
+    "PRIMARY_far_reduction": {
+      "estimate": 0.002947931264245545,
+      "bootstrap95": [
+        0.001998704748902036,
+        0.004048710296342667
+      ]
+    },
+    "far_minus_common_shuffle": {
+      "estimate": 0.0012999608661146884,
+      "bootstrap95": [
+        0.0006625860633479077,
+        0.001916505827187798
+      ]
+    },
+    "far_minus_mismatched_shuffle": {
+      "estimate": 0.0020888460516731958,
+      "bootstrap95": [
+        0.0013771892764802862,
+        0.0028346778746661536
+      ]
+    },
+    "far_minus_middle_exploratory": {
+      "estimate": -0.0003747459126642937,
+      "bootstrap95": [
+        -0.0008435884225267843,
+        0.00013749770192536548
+      ]
+    },
+    "middle_reduction_exploratory": {
+      "estimate": 0.0033226771769098384,
+      "bootstrap95": [
+        0.0024875227240104478,
+        0.004207379053338574
+      ]
+    },
+    "recent_reduction_exploratory": {
+      "estimate": 0.00039449682710947795,
+      "bootstrap95": [
+        -0.0007348485367442112,
+        0.0016319325336335978
+      ]
+    },
+    "numerical_diagnostic": {
+      "estimate": 9.331726371439012e-05,
+      "bootstrap95": [
+        9.068971865094081e-05,
+        9.59867200004387e-05
+      ]
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "timestamp_utc": "2026-11-13T10:22:04.933166+00:00",
+  "target1_status": "scientifically_complete_bounded_claim",
+  "target2_status": "three_arm_development_pilot_complete",
+  "target2_episode": "VideoUnmask_ep5",
+  "outcomes": {
+    "native": "success",
+    "identity": "success",
+    "age": "success"
+  },
+  "age_changed_tokens_per_call": 192,
+  "age_inference_calls": 7,
+  "held_out_target2_started": false,
+  "workspace_separate_mount": true,
+  "verified_files": {
+    "Target 1 final audit": {
+      "path": "/workspace/memtrace/analysis/target1_final_audit_v1/evidence_audit.json",
+      "sha256": "9730049c38322a7562181272c78a6221ec0554cb2a527bf019fc1a20a58f04fe"
+    },
+    "Target 1 paired summary": {
+      "path": "/workspace/memtrace/analysis/target1_three_seed_v1/three_seed_paired_summary.json",
+      "sha256": "fc00f8db842b40a52c1abb485802dde36452e0dee393b4eff8d731d7d9330bae"
+    },
+    "Target 1 checkpoint test": {
+      "path": "/workspace/memtrace/analysis/target1_checkpoint_hook/checkpoint_probe_v1/checkpoint_runtime_report.json",
+      "sha256": "cf1cea91fc3f915d822dd0cbbd32372ceddd98743e74c60c3a3b45cc5610635e"
+    },
+    "Target 1 layer test": {
+      "path": "/workspace/memtrace/analysis/target1_hook_validation/layer_runtime_report.json",
+      "sha256": "f7090d82223eea3cdde89f164bdcada2e8e5911c0d1aa30a542e1bb28875b131"
+    },
+    "Target 2 trained-checkpoint test": {
+      "path": "/workspace/memtrace/target2/development/checkpoint_wrapper_smoke_v1/report.json",
+      "sha256": "bdc5c819bfd609ede590c258838556ad31ce58790b45c5db00efac6bf2281990"
+    },
+    "Target 2 wrapper": {
+      "path": "/workspace/memtrace/target2/development/target2_policy_wrapper_v1.py",
+      "sha256": "dad01107a1fded3489bb482e565abd2f39aa05b93a3249a49419758f6d0e2013"
+    },
+    "Target 2 server": {
+      "path": "/workspace/memtrace/target2/development/target2_server_v1.py",
+      "sha256": "1c2a553f95b88ad2cac85d08f61c905511c64d2d31efab1cfb63ea3c8c1b85be"
+    },
+    "Target 2 native result": {
+      "path": "/workspace/memtrace/target2/development/rollouts/native_VideoUnmask_ep5_v1/result.json",
+      "sha256": "c06887d6afd790fdbe6f2fc9ba786bb345ad1fa18c6d8a4497db9028d7557772"
+    },
+    "Target 2 identity result": {
+      "path": "/workspace/memtrace/target2/development/rollouts/identity_VideoUnmask_ep5_v1/result.json",
+      "sha256": "1160c3ca2fff8480c9fa49b9ca752b29bb790084a6274f23182ac74552b15a1f"
+    },
+    "Target 2 age result": {
+      "path": "/workspace/memtrace/target2/development/rollouts/age_VideoUnmask_ep5_v1/result.json",
+      "sha256": "7cc6165b28912c203a90b8f3ec59b8b9b24f293e3e9b1401b382f06be8a93948"
+    },
+    "Identity runtime trace": {
+      "path": "/workspace/memtrace/target2/development/identity_server_v1/inference_calls.jsonl",
+      "sha256": "3998438efad8b4898e03e41d360fe1f6ab923bb0673a6c34af64910a740af970"
+    },
+    "Age runtime trace": {
+      "path": "/workspace/memtrace/target2/development/age_server_v1/inference_calls.jsonl",
+      "sha256": "4d64d4cef288c3bd836d4f2706652b557efa315e286592acfa72058ac8a21b91"
+    },
+    "Environment configuration": {
+      "path": "/workspace/MEMTRACE_RunPod_Target1_Rebuild/environment.sh",
+      "sha256": "47e86f0a734ec14b708798885b666520fc273f114677b944605c265a1547d0b7"
+    }
+  },
+  "next_step": "Development pilot across additional episodes"
+}

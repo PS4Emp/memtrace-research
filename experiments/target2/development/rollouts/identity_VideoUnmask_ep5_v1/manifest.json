@@ -1,0 +1,12 @@
+{
+  "phase": "target2_development",
+  "arm": "identity",
+  "task": "VideoUnmask",
+  "episode": 5,
+  "model_seed": 42,
+  "max_steps": 1300,
+  "obs_horizon": 16,
+  "controlled_recency": false,
+  "external_subgoal_predictors": false,
+  "held_out": false
+}

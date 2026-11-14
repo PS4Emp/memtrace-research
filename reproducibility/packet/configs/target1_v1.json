@@ -1,0 +1,19 @@
+{
+  "id": "MEMTRACE-TARGET1-SEMANTIC-KEY-CLAMP-v1",
+  "status": "UNEXECUTED_PROSPECTIVE_DESIGN_NOT_EXTERNALLY_PREREGISTERED",
+  "primary_anchor": "far",
+  "secondary_anchors": ["middle", "recent"],
+  "seeds": [42, 7, 2026],
+  "order_seed": 4264401,
+  "families": ["VideoUnmask", "InsertPeg", "VideoPlaceOrder"],
+  "engineering_episodes": [0],
+  "primary_episodes": [5, 11, 16, 22, 27, 33, 38, 44, 49],
+  "analysis": "mean of three paired MAE reductions per episode, then average seeds within episode; stratified episode bootstrap by family; no process/seed/pair pseudoreplication",
+  "primary_comparison": "native upstream/native downstream versus native upstream/shared FAR identity downstream positions, common post-RoPE reduction order",
+  "negative_control": "different deterministic semantic-key shuffle in each history; same positions multiset and same reduction order",
+  "specificity_control": "common shuffled semantic-key map in all histories; if all shared maps help equally, report nonspecific sensitivity suppression",
+  "positive_control": "upstream temporal positions AND downstream identity positions clamped to FAR; equality is an engineering expectation, not bridge evidence",
+  "falsification": "no positive mean episode reduction, inconsistent seeds/anchors, or reduction no larger than numerical execution effect leaves bridge unsupported",
+  "inference_claim": "controlled intervention effect on action divergence, not a uniquely identified natural indirect effect or task success",
+  "no_retry": "stop and preserve integrity failure; never retry valid negative; new version and output root for corrections"
+}

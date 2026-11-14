@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "Trained checkpoint, development episode, open-loop",
+  "episode": "VideoUnmask_ep5",
+  "checkpoint": "/workspace/memtrace/models/perceptual-framesamp-modul/79999",
+  "native_identity_exact": true,
+  "native_replay_exact": true,
+  "identity_replay_exact": true,
+  "age_replay_exact": true,
+  "memory_cache_unchanged": true,
+  "age_changed_active_tokens": [
+    192,
+    192
+  ],
+  "native_vs_age_action_mae": 0.0004042875298467351
+}

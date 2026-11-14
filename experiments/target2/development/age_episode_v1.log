@@ -1,0 +1,21 @@
+/workspace/memtrace/envs/sim/lib/python3.11/site-packages/sapien/_vulkan_tricks.py:78: UserWarning: Failed to find Vulkan ICD file. This is probably due to an incorrect or partial installation of the NVIDIA driver. SAPIEN will attempt to provide an ICD file anyway but it may not work.
+  warn(
+/workspace/memtrace/envs/policy/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+TARGET 2 — SINGLE AGE CLOSED-LOOP EPISODE
+=================================================================
+Task: VideoUnmask
+Episode: 5
+Server: 127.0.0.1:18111
+Maximum simulator steps: 1300
+External APIs: DISABLED
+Development only: YES
+
+Available episodes: 50
+ROLLOUT_STARTED
+task_goal: watch the video carefully, then pick up the container hiding the blue cube
+exec_start_idx: 66
+OFFICIAL_OUTCOME: success
+FINAL_STATUS: completed
+RESULT_FILE: /workspace/memtrace/target2/development/rollouts/age_VideoUnmask_ep5_v1/result.json
+TARGET2_AGE_EPISODE_COMPLETE

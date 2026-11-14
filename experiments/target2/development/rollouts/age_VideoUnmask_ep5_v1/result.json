@@ -1,0 +1,16 @@
+{
+  "phase": "target2_development",
+  "arm": "age",
+  "task": "VideoUnmask",
+  "episode": 5,
+  "model_seed": 42,
+  "max_steps": 1300,
+  "obs_horizon": 16,
+  "controlled_recency": false,
+  "external_subgoal_predictors": false,
+  "held_out": false,
+  "status": "completed",
+  "official_outcome": "success",
+  "wall_seconds": 59.214,
+  "error": null
+}

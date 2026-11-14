@@ -1,0 +1,290 @@
+[
+  {
+    "episode": "VideoUnmask_ep0",
+    "placement": "far",
+    "trace_keys_by_anchor": {
+      "far": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "middle": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "recent": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ]
+    },
+    "source_frame_indices_same_across_K_anchors": true,
+    "note": "Source frame selection does NOT establish that downstream serialized key positions changed."
+  },
+  {
+    "episode": "VideoUnmask_ep0",
+    "placement": "middle",
+    "trace_keys_by_anchor": {
+      "far": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "middle": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "recent": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ]
+    },
+    "source_frame_indices_same_across_K_anchors": true,
+    "note": "Source frame selection does NOT establish that downstream serialized key positions changed."
+  },
+  {
+    "episode": "VideoUnmask_ep0",
+    "placement": "recent",
+    "trace_keys_by_anchor": {
+      "far": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "middle": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "recent": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ]
+    },
+    "source_frame_indices_same_across_K_anchors": true,
+    "note": "Source frame selection does NOT establish that downstream serialized key positions changed."
+  },
+  {
+    "episode": "InsertPeg_ep0",
+    "placement": "far",
+    "trace_keys_by_anchor": {
+      "far": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "middle": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "recent": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ]
+    },
+    "source_frame_indices_same_across_K_anchors": true,
+    "note": "Source frame selection does NOT establish that downstream serialized key positions changed."
+  },
+  {
+    "episode": "InsertPeg_ep0",
+    "placement": "middle",
+    "trace_keys_by_anchor": {
+      "far": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "middle": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "recent": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ]
+    },
+    "source_frame_indices_same_across_K_anchors": true,
+    "note": "Source frame selection does NOT establish that downstream serialized key positions changed."
+  },
+  {
+    "episode": "InsertPeg_ep0",
+    "placement": "recent",
+    "trace_keys_by_anchor": {
+      "far": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "middle": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "recent": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ]
+    },
+    "source_frame_indices_same_across_K_anchors": true,
+    "note": "Source frame selection does NOT establish that downstream serialized key positions changed."
+  },
+  {
+    "episode": "VideoPlaceOrder_ep0",
+    "placement": "far",
+    "trace_keys_by_anchor": {
+      "far": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "middle": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "recent": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ]
+    },
+    "source_frame_indices_same_across_K_anchors": true,
+    "note": "Source frame selection does NOT establish that downstream serialized key positions changed."
+  },
+  {
+    "episode": "VideoPlaceOrder_ep0",
+    "placement": "middle",
+    "trace_keys_by_anchor": {
+      "far": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "middle": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "recent": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ]
+    },
+    "source_frame_indices_same_across_K_anchors": true,
+    "note": "Source frame selection does NOT establish that downstream serialized key positions changed."
+  },
+  {
+    "episode": "VideoPlaceOrder_ep0",
+    "placement": "recent",
+    "trace_keys_by_anchor": {
+      "far": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "middle": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ],
+      "recent": [
+        "step_idx",
+        "token_budget",
+        "token_per_image",
+        "num_views",
+        "max_size",
+        "indices_to_load"
+      ]
+    },
+    "source_frame_indices_same_across_K_anchors": true,
+    "note": "Source frame selection does NOT establish that downstream serialized key positions changed."
+  }
+]

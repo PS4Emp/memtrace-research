@@ -1,0 +1,61 @@
+{
+  "status": "TARGET1_EVIDENCE_AUDIT_PASS",
+  "protocol_sha256": "bc46027c5906f311920926327161b5f92a416dccc1814d0e101ef041685433e0",
+  "formal_seeds": [
+    42,
+    7,
+    2026
+  ],
+  "formal_episode_evaluations": 81,
+  "unique_formal_episode_configurations": 27,
+  "engineering_episode_evaluations": 9,
+  "episode_records_checked": 90,
+  "action_files_hash_verified": 4050,
+  "numerical_and_cache_checks": 1080,
+  "frozen_provenance_identical_across_runs": true,
+  "original_analysis_reconciled": true,
+  "paired_statistical_report_reproduced": true,
+  "trained_checkpoint_runtime_verified": true,
+  "per_seed_analysis_sha256": {
+    "/workspace/memtrace/results/target1_v1/analysis_seed42/episode_endpoints.csv": "5a9317ee8be7a76df207f501f3e34dca274c173096686223bfb5e4eb681d5db9",
+    "/workspace/memtrace/results/target1_v1/analysis_seed42/summary.json": "84fc3bf69d437bc35d18da2630d76274d1f58617f0668640fd6dc15687c640c9",
+    "/workspace/memtrace/results/target1_v1/analysis_seed42/all_pair_seed_metrics.csv": "356b04107a4a3bdb368156f0768b9bdb9f95f693e44ef97077f53c44ada9e428",
+    "/workspace/memtrace/results/target1_v1/analysis_seed7/episode_endpoints.csv": "ce1651cfc9f3ee3b430a80ca31a8c6179caf0a0b2262b079769485ded217438f",
+    "/workspace/memtrace/results/target1_v1/analysis_seed7/summary.json": "72068840d4aba0830a137b1439fc9d3c656a47331fef229d5f82b941a89fa617",
+    "/workspace/memtrace/results/target1_v1/analysis_seed7/all_pair_seed_metrics.csv": "e4804a1bbdda8c498a04e01a1e257ed9ec1fb9bd3a0816826656c22f70696f74",
+    "/workspace/memtrace/results/target1_v1/analysis_seed2026/episode_endpoints.csv": "5975bb4affe05472c60c17a480e9f783a3337a0a129adb41f08a64ff63f05c9f",
+    "/workspace/memtrace/results/target1_v1/analysis_seed2026/summary.json": "2cebac0c2ff739aba8da6df9de1b81411b1b07f062855941b3787d62ece8ac1e",
+    "/workspace/memtrace/results/target1_v1/analysis_seed2026/all_pair_seed_metrics.csv": "5c34ad2298baf4337380f91c4abd2d142ab6d546c96685401443b0729f4b4e36"
+  },
+  "paired_statistics_report_sha256": "fc00f8db842b40a52c1abb485802dde36452e0dee393b4eff8d731d7d9330bae",
+  "checkpoint_hook_report_sha256": "cf1cea91fc3f915d822dd0cbbd32372ceddd98743e74c60c3a3b45cc5610635e",
+  "primary_far_effect": {
+    "estimate": 0.002947931264245545,
+    "bootstrap95": [
+      0.001998704748902036,
+      0.004048710296342667
+    ]
+  },
+  "far_minus_common_shuffle": {
+    "estimate": 0.0012999608661146884,
+    "bootstrap95": [
+      0.0006625860633479077,
+      0.001916505827187798
+    ]
+  },
+  "far_minus_mismatched_shuffle": {
+    "estimate": 0.0020888460516731958,
+    "bootstrap95": [
+      0.0013771892764802862,
+      0.0028346778746661536
+    ]
+  },
+  "scope_limits": [
+    "One trained model and three task families",
+    "Repeated seeds are not independent task configurations",
+    "Task-specific negative effects must be reported",
+    "No demonstrated closed-loop task success improvement",
+    "No demonstrated cross-architecture generalization",
+    "Checkpoint hook diagnostic uses one frozen episode"
+  ]
+}
